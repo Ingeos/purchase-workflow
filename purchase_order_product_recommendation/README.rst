@@ -32,6 +32,10 @@ dates, and allows the purchase manager to quickly know the most sold products
 for the current supplier, which results in an easy to use hint to improve
 the purchase workflow.
 
+If you want a better mobile usability, the module is ready to use with the
+'web_widget_numeric_step' module. Just install it and you will get a better
+numeric input experience.
+
 **Table of contents**
 
 .. contents::
@@ -53,6 +57,9 @@ supplier. Then it computes how many times those products have been delivered to
 customer locations, and finally it makes a simple estimation of how many
 quantites would be necesary to order given the forcasted stock and the computed
 demand.
+
+If you want to constrain results to only some categories, you can also select
+them in the wizard.
 
 If you have multiple warehouses, you can also constrain the recommendations to
 the deliveries of specific ones.

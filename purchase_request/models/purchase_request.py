@@ -66,6 +66,7 @@ class PurchaseRequest(models.Model):
     requested_by = fields.Many2one('res.users',
                                    'Requested by',
                                    required=True,
+                                   copy=False,
                                    track_visibility='onchange',
                                    default=_get_default_requested_by)
     assigned_to = fields.Many2one(
@@ -224,6 +225,20 @@ class PurchaseRequest(models.Model):
                 partner_id = self._get_partner_id(request)
                 request.message_subscribe(partner_ids=[partner_id])
         return res
+
+    @api.multi
+    def _can_be_deleted(self):
+        self.ensure_one()
+        return self.state == 'draft'
+
+    @api.multi
+    def unlink(self):
+        for request in self:
+            if not request._can_be_deleted():
+                raise UserError(_(
+                    'You cannot delete a purchase request which is not draft.'
+                ))
+        return super(PurchaseRequest, self).unlink()
 
     @api.multi
     def button_draft(self):
