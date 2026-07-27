@@ -3,11 +3,13 @@
 
 from datetime import datetime
 
+from odoo.tests import tagged
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 
 from odoo.addons.account.tests.common import AccountTestInvoicingCommon
 
 
+@tagged("post_install", "-at_install")
 class TestPurchasePickingState(AccountTestInvoicingCommon):
     def setUp(self):
         super().setUp()
@@ -17,10 +19,12 @@ class TestPurchasePickingState(AccountTestInvoicingCommon):
         self.partner_id = self.env.ref("base.res_partner_1")
         self.product_id_1 = self.env.ref("product.product_product_8")
         self.product_id_2 = self.env.ref("product.product_product_11")
+        self.company = self.company_data["company"]
 
         (self.product_id_1 | self.product_id_2).write({"purchase_method": "purchase"})
         self.po_vals = {
             "partner_id": self.partner_id.id,
+            "company_id": self.company.id,
             "order_line": [
                 (
                     0,
@@ -32,6 +36,7 @@ class TestPurchasePickingState(AccountTestInvoicingCommon):
                         "product_uom": self.product_id_1.uom_po_id.id,
                         "price_unit": 500.0,
                         "date_planned": datetime.today().strftime(DTF),
+                        "company_id": self.company.id,
                     },
                 ),
                 (
@@ -44,6 +49,7 @@ class TestPurchasePickingState(AccountTestInvoicingCommon):
                         "product_uom": self.product_id_2.uom_po_id.id,
                         "price_unit": 250.0,
                         "date_planned": datetime.today().strftime(DTF),
+                        "company_id": self.company.id,
                     },
                 ),
             ],

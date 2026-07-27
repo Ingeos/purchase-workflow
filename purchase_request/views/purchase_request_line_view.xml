@@ -7,7 +7,6 @@
         <field name="model">purchase.request.line</field>
         <field name="arch" type="xml">
             <tree
-                string="Purchase Request Lines"
                 create="false"
                 decoration-muted="cancelled == True"
                 decoration-info="request_state in ('draft', 'to_approve')"
@@ -38,6 +37,7 @@
                 <field name="product_id" />
                 <field name="name" />
                 <field name="product_qty" />
+                <field name="product_uom_category_id" invisible="1" />
                 <field name="product_uom_id" groups="uom.group_uom" />
                 <field
                     name="analytic_account_id"
@@ -119,6 +119,7 @@
                                     class="oe_inline"
                                     attrs="{'readonly': [('is_editable','=', False)]}"
                                 />
+                                <field name="product_uom_category_id" invisible="1" />
                                 <field
                                     name="product_uom_id"
                                     groups="uom.group_uom"
@@ -497,7 +498,7 @@
         <field name="name">purchase.order.line.tree</field>
         <field name="model">purchase.order.line</field>
         <field name="arch" type="xml">
-            <tree string="Purchase Order Lines" create="true">
+            <tree create="true">
                 <field name="order_id" />
                 <field name="name" />
                 <field name="partner_id" string="Vendor" />

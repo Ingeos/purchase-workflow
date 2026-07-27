@@ -190,7 +190,6 @@ msgid "Allocated Quantity"
 msgstr "Količina"
 
 #. module: purchase_request
-#: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_allocation
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_form
 msgid "Allocations"
 msgstr ""
@@ -274,6 +273,11 @@ msgid "Cancelled Quantity"
 msgstr "Količina"
 
 #. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__product_uom_category_id
+msgid "Category"
+msgstr ""
+
+#. module: purchase_request
 #: model:ir.model.fields,help:purchase_request.field_product_product__purchase_request
 #: model:ir.model.fields,help:purchase_request.field_product_template__purchase_request
 msgid ""
@@ -287,6 +291,11 @@ msgid "Click to start a new purchase request process."
 msgstr "Kliknite za pokretanje novog zahtjeva za nabavom"
 
 #. module: purchase_request
+#: model:ir.model,name:purchase_request.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request__company_id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_allocation__company_id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__company_id
@@ -294,8 +303,20 @@ msgid "Company"
 msgstr "Poduzeće"
 
 #. module: purchase_request
+#: model:ir.model.fields,help:purchase_request.field_purchase_request_line__product_uom_category_id
+msgid ""
+"Conversion between Units of Measure can only occur if they belong to the "
+"same category. The conversion will be made based on the ratios."
+msgstr ""
+
+#. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order_item__keep_description
 msgid "Copy descriptions to new PO"
+msgstr ""
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order_item__keep_estimated_cost
+msgid "Copy estimative cost to new PO"
 msgstr ""
 
 #. module: purchase_request
@@ -339,6 +360,7 @@ msgstr "Datum kreiranja"
 #. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request__currency_id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__currency_id
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order_item__currency_id
 msgid "Currency"
 msgstr ""
 
@@ -356,11 +378,6 @@ msgid "Description"
 msgstr "Opis"
 
 #. module: purchase_request
-#: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_line_make_purchase_order
-msgid "Details"
-msgstr ""
-
-#. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_product_template__display_name
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_order__display_name
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_order_line__display_name
@@ -369,6 +386,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__display_name
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order__display_name
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order_item__display_name
+#: model:ir.model.fields,field_description:purchase_request.field_res_company__display_name
+#: model:ir.model.fields,field_description:purchase_request.field_res_config_settings__display_name
 #: model:ir.model.fields,field_description:purchase_request.field_stock_move__display_name
 #: model:ir.model.fields,field_description:purchase_request.field_stock_move_line__display_name
 #: model:ir.model.fields,field_description:purchase_request.field_stock_picking__display_name
@@ -410,6 +429,7 @@ msgstr "Preferirani dobavljač"
 
 #. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__estimated_cost
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order_item__estimated_cost
 msgid "Estimated Cost"
 msgstr ""
 
@@ -480,6 +500,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order__id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order_item__id
+#: model:ir.model.fields,field_description:purchase_request.field_res_company__id
+#: model:ir.model.fields,field_description:purchase_request.field_res_config_settings__id
 #: model:ir.model.fields,field_description:purchase_request.field_stock_move__id
 #: model:ir.model.fields,field_description:purchase_request.field_stock_move_line__id
 #: model:ir.model.fields,field_description:purchase_request.field_stock_picking__id
@@ -510,9 +532,7 @@ msgstr ""
 
 #. module: purchase_request
 #: model:ir.model.fields,help:purchase_request.field_purchase_request__message_has_error
-#: model:ir.model.fields,help:purchase_request.field_purchase_request__message_has_sms_error
 #: model:ir.model.fields,help:purchase_request.field_purchase_request_line__message_has_error
-#: model:ir.model.fields,help:purchase_request.field_purchase_request_line__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -547,6 +567,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line____last_update
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order____last_update
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order_item____last_update
+#: model:ir.model.fields,field_description:purchase_request.field_res_company____last_update
+#: model:ir.model.fields,field_description:purchase_request.field_res_config_settings____last_update
 #: model:ir.model.fields,field_description:purchase_request.field_stock_move____last_update
 #: model:ir.model.fields,field_description:purchase_request.field_stock_move_line____last_update
 #: model:ir.model.fields,field_description:purchase_request.field_stock_picking____last_update
@@ -659,6 +681,11 @@ msgid "No RFQ or Purchase has been created"
 msgstr ""
 
 #. module: purchase_request
+#: model_terms:ir.ui.view,arch_db:purchase_request.res_config_settings_view_form
+msgid "Notify followers on request allocation"
+msgstr ""
+
+#. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request__message_needaction_counter
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__message_needaction_counter
 msgid "Number of Actions"
@@ -748,6 +775,11 @@ msgid "Procurement Group"
 msgstr "Nalog za nabavu"
 
 #. module: purchase_request
+#: model:ir.model,name:purchase_request.model_res_config_settings
+msgid "Procurement purchase grouping settings"
+msgstr ""
+
+#. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request__product_id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_allocation__product_id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__product_id
@@ -812,7 +844,6 @@ msgstr "Stavka zahtjeva za nabavu"
 #. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__purchase_lines
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_order_line_form2_sub
-#: model_terms:ir.ui.view,arch_db:purchase_request.purchase_order_line_tree_sub
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_form
 #: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_form
 #, fuzzy
@@ -836,21 +867,20 @@ msgstr "Zahtjevi za nabavom"
 #: model_terms:ir.ui.view,arch_db:purchase_request.report_purchase_request
 #: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_form
 #: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_search
-#: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_tree
 msgid "Purchase Request"
 msgstr "Zahtjev za nabavu"
 
 #. module: purchase_request
 #: code:addons/purchase_request/models/purchase_order.py:0
-#, fuzzy, python-format
+#, python-format
 msgid "Purchase Request %s has already been completed"
-msgstr "Zahtjev za nabau odbijen"
+msgstr ""
 
 #. module: purchase_request
 #: code:addons/purchase_request/wizard/purchase_request_line_make_purchase_order.py:0
-#, fuzzy, python-format
+#, python-format
 msgid "Purchase Request %s is not approved"
-msgstr "Zahtjev za nabavu odobren"
+msgstr ""
 
 #. module: purchase_request
 #: model:ir.model,name:purchase_request.model_purchase_request_allocation
@@ -902,7 +932,6 @@ msgstr "Stavka zahtjeva za nabavu"
 #: model:ir.ui.menu,name:purchase_request.menu_purchase_request_line_act
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_order_line_form2
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_order_line_form2_sub
-#: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_tree
 #, python-format
 msgid "Purchase Request Lines"
 msgstr "Stavke zahtjeva za nabavu"
@@ -1113,6 +1142,11 @@ msgid "Request is to be approved"
 msgstr "Zahtejv čeka odobrenje"
 
 #. module: purchase_request
+#: model_terms:ir.ui.view,arch_db:purchase_request.res_config_settings_view_form
+msgid "Request mail options"
+msgstr ""
+
+#. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__request_state
 msgid "Request state"
 msgstr "Status zahtjeva"
@@ -1154,12 +1188,6 @@ msgid "Responsible User"
 msgstr ""
 
 #. module: purchase_request
-#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__message_has_sms_error
-#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr ""
-
-#. module: purchase_request
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_order_line_search_sub
 #, fuzzy
 msgid "Search Purchase Order Line"
@@ -1169,6 +1197,16 @@ msgstr "Stavka zahtjeva za nabavu"
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_search
 #: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_search
 msgid "Search Purchase Request"
+msgstr ""
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_res_company__notify_request_allocations
+msgid "Send emails on confirmaion"
+msgstr ""
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_res_config_settings__notify_request_allocations
+msgid "Send emails with request confirmaion"
 msgstr ""
 
 #. module: purchase_request
@@ -1188,6 +1226,13 @@ msgstr ""
 msgid ""
 "Set true if you want to keep the descriptions provided in the wizard in the "
 "new PO."
+msgstr ""
+
+#. module: purchase_request
+#: model:ir.model.fields,help:purchase_request.field_purchase_request_line_make_purchase_order_item__keep_estimated_cost
+msgid ""
+"Set true if you want to keep the estimated cost provided in the wizard in "
+"the new PO."
 msgstr ""
 
 #. module: purchase_request

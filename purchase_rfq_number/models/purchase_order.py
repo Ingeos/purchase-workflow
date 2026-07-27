@@ -15,6 +15,12 @@ class PurchaseOrder(models.Model):
         copy=False,
         default="New",
     )
+    po_number = fields.Char(
+        string="PO Reference",
+        index=True,
+        copy=False,
+        default="New",
+    )
 
     @api.model
     def create(self, vals):
@@ -27,7 +33,13 @@ class PurchaseOrder(models.Model):
             keep_name_po = self.env.company.keep_name_po
 
         if not keep_name_po and vals.get("name", "New") == "New":
-            vals["name"] = self.env["ir.sequence"].next_by_code("purchase.rfq") or "New"
+            company_id = vals.get("company_id", self.env.company.id)
+            vals["name"] = (
+                self.with_company(company_id)
+                .env["ir.sequence"]
+                .next_by_code("purchase.rfq")
+                or "New"
+            )
 
         return super().create(vals)
 
@@ -37,11 +49,19 @@ class PurchaseOrder(models.Model):
                 if order.company_id.auto_attachment_rfq:
                     # save rfq pdf as attachment
                     order.action_get_rfq_attachment()
-
+                company = order.company_id or self.env.company
+                po_number = (
+                    order.po_number
+                    if order.po_number != "New"
+                    else self.with_company(company.id)
+                    .env["ir.sequence"]
+                    .next_by_code("purchase.order")
+                )
                 order.write(
                     {
                         "rfq_number": order.name,
-                        "name": self.env["ir.sequence"].next_by_code("purchase.order"),
+                        "name": po_number,
+                        "po_number": po_number,
                     }
                 )
 

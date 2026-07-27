@@ -194,7 +194,6 @@ msgid "Allocated Quantity"
 msgstr "Cant. asignada"
 
 #. module: purchase_request
-#: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_allocation
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_form
 msgid "Allocations"
 msgstr "Asignaciones"
@@ -277,6 +276,11 @@ msgid "Cancelled Quantity"
 msgstr "Cantidad anulada"
 
 #. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__product_uom_category_id
+msgid "Category"
+msgstr ""
+
+#. module: purchase_request
 #: model:ir.model.fields,help:purchase_request.field_product_product__purchase_request
 #: model:ir.model.fields,help:purchase_request.field_product_template__purchase_request
 msgid ""
@@ -292,6 +296,11 @@ msgid "Click to start a new purchase request process."
 msgstr "Clic para iniciar una nueva requisición de compra."
 
 #. module: purchase_request
+#: model:ir.model,name:purchase_request.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request__company_id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_allocation__company_id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__company_id
@@ -299,9 +308,21 @@ msgid "Company"
 msgstr "Compañia"
 
 #. module: purchase_request
+#: model:ir.model.fields,help:purchase_request.field_purchase_request_line__product_uom_category_id
+msgid ""
+"Conversion between Units of Measure can only occur if they belong to the "
+"same category. The conversion will be made based on the ratios."
+msgstr ""
+
+#. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order_item__keep_description
 msgid "Copy descriptions to new PO"
 msgstr "Copiar descripción a nueva PO"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order_item__keep_estimated_cost
+msgid "Copy estimative cost to new PO"
+msgstr ""
 
 #. module: purchase_request
 #: model:ir.actions.act_window,name:purchase_request.action_purchase_request_line_make_purchase_order
@@ -342,6 +363,7 @@ msgstr "Creación"
 #. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request__currency_id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__currency_id
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order_item__currency_id
 msgid "Currency"
 msgstr "Moneda"
 
@@ -359,11 +381,6 @@ msgid "Description"
 msgstr "Descripción"
 
 #. module: purchase_request
-#: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_line_make_purchase_order
-msgid "Details"
-msgstr "Detalles"
-
-#. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_product_template__display_name
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_order__display_name
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_order_line__display_name
@@ -372,6 +389,8 @@ msgstr "Detalles"
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__display_name
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order__display_name
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order_item__display_name
+#: model:ir.model.fields,field_description:purchase_request.field_res_company__display_name
+#: model:ir.model.fields,field_description:purchase_request.field_res_config_settings__display_name
 #: model:ir.model.fields,field_description:purchase_request.field_stock_move__display_name
 #: model:ir.model.fields,field_description:purchase_request.field_stock_move_line__display_name
 #: model:ir.model.fields,field_description:purchase_request.field_stock_picking__display_name
@@ -413,6 +432,7 @@ msgstr "Ingrese un proveedor."
 
 #. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__estimated_cost
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order_item__estimated_cost
 msgid "Estimated Cost"
 msgstr "Costo estimado"
 
@@ -484,6 +504,8 @@ msgstr "Ocultar ítems cancelados"
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order__id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order_item__id
+#: model:ir.model.fields,field_description:purchase_request.field_res_company__id
+#: model:ir.model.fields,field_description:purchase_request.field_res_config_settings__id
 #: model:ir.model.fields,field_description:purchase_request.field_stock_move__id
 #: model:ir.model.fields,field_description:purchase_request.field_stock_move_line__id
 #: model:ir.model.fields,field_description:purchase_request.field_stock_picking__id
@@ -514,9 +536,7 @@ msgstr "Si esta activado, nuevos mensajes necesitan tu atención."
 
 #. module: purchase_request
 #: model:ir.model.fields,help:purchase_request.field_purchase_request__message_has_error
-#: model:ir.model.fields,help:purchase_request.field_purchase_request__message_has_sms_error
 #: model:ir.model.fields,help:purchase_request.field_purchase_request_line__message_has_error
-#: model:ir.model.fields,help:purchase_request.field_purchase_request_line__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Si esta activado, algunos mensajes tiene error en la entrega."
 
@@ -551,6 +571,8 @@ msgstr "Items"
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line____last_update
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order____last_update
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order_item____last_update
+#: model:ir.model.fields,field_description:purchase_request.field_res_company____last_update
+#: model:ir.model.fields,field_description:purchase_request.field_res_config_settings____last_update
 #: model:ir.model.fields,field_description:purchase_request.field_stock_move____last_update
 #: model:ir.model.fields,field_description:purchase_request.field_stock_move_line____last_update
 #: model:ir.model.fields,field_description:purchase_request.field_stock_picking____last_update
@@ -662,6 +684,11 @@ msgid "No RFQ or Purchase has been created"
 msgstr "Solicitud o pedido no ha sido creado"
 
 #. module: purchase_request
+#: model_terms:ir.ui.view,arch_db:purchase_request.res_config_settings_view_form
+msgid "Notify followers on request allocation"
+msgstr ""
+
+#. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request__message_needaction_counter
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__message_needaction_counter
 msgid "Number of Actions"
@@ -747,6 +774,11 @@ msgid "Procurement Group"
 msgstr "Grupo de abastecimiento"
 
 #. module: purchase_request
+#: model:ir.model,name:purchase_request.model_res_config_settings
+msgid "Procurement purchase grouping settings"
+msgstr ""
+
+#. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request__product_id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_allocation__product_id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__product_id
@@ -805,7 +837,6 @@ msgstr "Item de orden de compra"
 #. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__purchase_lines
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_order_line_form2_sub
-#: model_terms:ir.ui.view,arch_db:purchase_request.purchase_order_line_tree_sub
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_form
 #: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_form
 msgid "Purchase Order Lines"
@@ -827,7 +858,6 @@ msgstr "Ordenes de Compra"
 #: model_terms:ir.ui.view,arch_db:purchase_request.report_purchase_request
 #: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_form
 #: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_search
-#: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_tree
 msgid "Purchase Request"
 msgstr "Requisición de compra"
 
@@ -888,7 +918,6 @@ msgstr "# de detalle de requisiciones"
 #: model:ir.ui.menu,name:purchase_request.menu_purchase_request_line_act
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_order_line_form2
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_order_line_form2_sub
-#: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_tree
 #, python-format
 msgid "Purchase Request Lines"
 msgstr "Detalle de requisiciones"
@@ -1096,6 +1125,11 @@ msgid "Request is to be approved"
 msgstr "Requisición a aprobar"
 
 #. module: purchase_request
+#: model_terms:ir.ui.view,arch_db:purchase_request.res_config_settings_view_form
+msgid "Request mail options"
+msgstr ""
+
+#. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__request_state
 msgid "Request state"
 msgstr "Fecha requisición"
@@ -1135,13 +1169,6 @@ msgid "Responsible User"
 msgstr "Responsable"
 
 #. module: purchase_request
-#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__message_has_sms_error
-#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__message_has_sms_error
-#, fuzzy
-msgid "SMS Delivery error"
-msgstr "Mensaje de error"
-
-#. module: purchase_request
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_order_line_search_sub
 msgid "Search Purchase Order Line"
 msgstr "Buscar detalle de pedido"
@@ -1151,6 +1178,16 @@ msgstr "Buscar detalle de pedido"
 #: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_search
 msgid "Search Purchase Request"
 msgstr "Buscar requsición"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_res_company__notify_request_allocations
+msgid "Send emails on confirmaion"
+msgstr ""
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_res_config_settings__notify_request_allocations
+msgid "Send emails with request confirmaion"
+msgstr ""
 
 #. module: purchase_request
 #: model:ir.model.fields,help:purchase_request.field_purchase_request_allocation__purchase_line_id
@@ -1171,6 +1208,13 @@ msgid ""
 msgstr ""
 "Activar si deseas mantener la descripción dada en el asistente para la nueva "
 "PO."
+
+#. module: purchase_request
+#: model:ir.model.fields,help:purchase_request.field_purchase_request_line_make_purchase_order_item__keep_estimated_cost
+msgid ""
+"Set true if you want to keep the estimated cost provided in the wizard in "
+"the new PO."
+msgstr ""
 
 #. module: purchase_request
 #: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_search
@@ -1460,6 +1504,13 @@ msgstr "Debes seleccionar líneas del mismo tipo de picking."
 #, python-format
 msgid "You have to select lines from the same company."
 msgstr "Has seleccionado líneas de la misma compañía."
+
+#~ msgid "Details"
+#~ msgstr "Detalles"
+
+#, fuzzy
+#~ msgid "SMS Delivery error"
+#~ msgstr "Mensaje de error"
 
 #~ msgid "Purchase requests"
 #~ msgstr "Requisiciones de Compra"
